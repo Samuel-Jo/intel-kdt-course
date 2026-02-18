@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { ApplyButton } from '@/components/features/ApplyButton'
 import { Section } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'

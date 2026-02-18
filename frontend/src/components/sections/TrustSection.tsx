@@ -56,7 +56,7 @@ export function TrustSection() {
                                     현업 10년차 풀스택 개발자 & AI 전문가
                                 </p>
                                 <p className="text-sm text-gray-500">
-                                    "코드 한 줄 못 짜던 비전공자도 6개월 뒤에는 MVP를 출시할 수 있도록 이끌어 드립니다."
+                                    &quot;코드 한 줄 못 짜던 비전공자도 6개월 뒤에는 MVP를 출시할 수 있도록 이끌어 드립니다.&quot;
                                 </p>
                             </div>
                         </div>

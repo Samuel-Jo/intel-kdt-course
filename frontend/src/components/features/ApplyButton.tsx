@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { buttonVariants, ButtonProps } from '@/components/ui/Button'
 import { siteConfig } from '@/config/site'
@@ -22,6 +24,7 @@ export const ApplyButton = React.forwardRef<HTMLAnchorElement, ApplyButtonProps>
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 ref={ref}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 {...props as any} // Framer motion types might mismatch slightly with Next.js Link
             >
                 {children}

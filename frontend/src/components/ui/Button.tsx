@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 import { motion, HTMLMotionProps } from 'framer-motion'
 import { cva, type VariantProps } from 'class-variance-authority'
@@ -41,7 +43,7 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className, variant, size, asChild = false, isLoading, children, ...props }, ref) => {
+    ({ className, variant, size, isLoading, children, ...props }, ref) => {
         // If asChild is true, we would use Slot (not installed yet). Skip for now or assume false.
         // Simplifying for this task which didn't ask for Radix Slot.
 
