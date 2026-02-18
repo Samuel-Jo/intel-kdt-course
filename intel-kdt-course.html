@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Digital Training: AI 앱 개발자 양성 과정</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+        }
+        .step-connector::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 100%;
+            height: 2px;
+            background-color: #e2e8f0;
+            z-index: 0;
+            transform: translateY(-50%);
+        }
+        .step-connector:last-child::after { display: none; }
+        .active-step .step-circle { background-color: #4f46e5; color: white; border-color: #4f46e5; } /* Indigo for Creativity/Startup */
+        .active-step .step-text { color: #1e293b; font-weight: 700; }
+        
+        /* Solopreneur Highlight Style */
+        .solo-highlight {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Chosen Palette: Indigo & Violet (Creativity, Innovation, Startup) -->
+    
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-black">K</div>
+                    <span class="text-xl font-bold text-slate-900 tracking-tight">K-Digital Training <span class="text-indigo-600 font-normal">과정 기획안</span></span>
+                </div>
+                <div class="hidden md:flex space-x-6 text-sm font-medium text-slate-500">
+                    <a href="#roadmap" class="hover:text-indigo-600 transition-colors">운영 로드맵</a>
+                    <a href="#curriculum" class="hover:text-indigo-600 transition-colors">상세 커리큘럼</a>
+                    <a href="#projects" class="hover:text-indigo-600 transition-colors">창업 프로젝트</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+        <!-- 1. Hero & Key Stats -->
+        <header class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+            <div class="md:col-span-1 bg-gradient-to-br from-indigo-600 to-violet-600 rounded-2xl p-6 text-white shadow-lg flex flex-col justify-between relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-lg font-medium opacity-90">총 훈련 시간</h2>
+                    <p class="text-4xl font-black mt-2">944시간</p>
+                    <p class="text-sm opacity-75 mt-1">118일 집중 과정</p>
+                </div>
+                <div class="absolute right-0 bottom-0 opacity-10 text-9xl font-black -mr-4 -mb-4">T</div>
+            </div>
+            
+            <div class="md:col-span-3 bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col justify-center">
+                <h1 class="text-2xl font-bold text-slate-800 mb-2">AI 앱 개발자 양성 과정</h1>
+                <p class="text-slate-600 leading-relaxed">
+                    본 과정은 <span class="font-bold text-indigo-700">1인 창업자(Solopreneur)</span> 시대에 필수인 
+                    <span class="bg-indigo-50 text-indigo-700 px-1 rounded font-bold">앱 개발 역량 강화</span>에 집중한 
+                    현업의 경험과 전공의 노하우를 <span class="underline decoration-indigo-300 decoration-2">서비스 앱으로 구현하는</span> 실무형 K-Digital Training 과정입니다.
+                </p>
+            </div>
+        </header>
+
+        <!-- 2. Operation Roadmap (Startup Focused) -->
+        <section id="roadmap" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
+            <h2 class="text-xl font-bold text-slate-800 mb-8 flex items-center gap-2">
+                <span class="w-2 h-6 bg-indigo-600 rounded-full"></span>
+                운영 로드맵 (Operation Roadmap)
+            </h2>
+            
+            <div class="relative flex flex-col md:flex-row justify-between items-start md:items-center gap-8 md:gap-0">
+                <!-- Connector Line -->
+                <div class="hidden md:block absolute top-[24px] left-0 h-1 bg-slate-100 z-0 mx-12" style="width: calc(100% - 6rem);"></div>
+
+                <!-- Steps -->
+                <div class="relative z-10 flex flex-row md:flex-col items-center gap-4 md:gap-2 w-full md:w-1/5 group cursor-pointer" onclick="showStepDetail('step1')">
+                    <div class="w-12 h-12 rounded-full bg-white border-2 border-indigo-600 text-indigo-600 flex items-center justify-center font-bold text-lg shadow-sm">01</div>
+                    <div class="text-left md:text-center">
+                        <h3 class="font-bold text-slate-800">Foundation</h3>
+                        <p class="text-xs text-slate-500 mt-1">AI 기초 및 프로그래밍<br>(Day 1-19)</p>
+                    </div>
+                </div>
+
+                <div class="relative z-10 flex flex-row md:flex-col items-center gap-4 md:gap-2 w-full md:w-1/5 group cursor-pointer" onclick="showStepDetail('step2')">
+                    <div class="w-12 h-12 rounded-full bg-white border-2 border-slate-300 text-slate-500 flex items-center justify-center font-bold text-lg shadow-sm hover:border-indigo-400 hover:text-indigo-400 transition-colors">02</div>
+                    <div class="text-left md:text-center">
+                        <h3 class="font-bold text-slate-700">App Dev</h3>
+                        <p class="text-xs text-slate-500 mt-1">웹/앱 개발 및 배포<br>(Day 20-37)</p>
+                    </div>
+                </div>
+
+                <div class="relative z-10 flex flex-row md:flex-col items-center gap-4 md:gap-2 w-full md:w-1/5 group cursor-pointer" onclick="showStepDetail('step3')">
+                    <div class="w-12 h-12 rounded-full bg-white border-2 border-slate-300 text-slate-500 flex items-center justify-center font-bold text-lg shadow-sm hover:border-indigo-400 hover:text-indigo-400 transition-colors">03</div>
+                    <div class="text-left md:text-center">
+                        <h3 class="font-bold text-slate-700">Experience</h3>
+                        <p class="text-xs text-slate-500 mt-1">AI 심화 & Gen AI<br>(Day 38-70)</p>
+                    </div>
+                </div>
+
+                <div class="relative z-10 flex flex-row md:flex-col items-center gap-4 md:gap-2 w-full md:w-1/5 group cursor-pointer" onclick="showStepDetail('step4')">
+                    <div class="w-12 h-12 rounded-full bg-white border-2 border-slate-300 text-slate-500 flex items-center justify-center font-bold text-lg shadow-sm hover:border-indigo-400 hover:text-indigo-400 transition-colors">04</div>
+                    <div class="text-left md:text-center">
+                        <h3 class="font-bold text-slate-700">Project</h3>
+                        <p class="text-xs text-slate-500 mt-1">실전 앱 서비스 개발<br>(Day 71-118)</p>
+                    </div>
+                </div>
+
+                <div class="relative z-10 flex flex-row md:flex-col items-center gap-4 md:gap-2 w-full md:w-1/5 group cursor-pointer" onclick="showStepDetail('step5')">
+                    <div class="w-12 h-12 rounded-full bg-indigo-50 border-2 border-indigo-600 text-indigo-600 flex items-center justify-center font-bold text-lg shadow-sm ring-4 ring-indigo-50">05</div>
+                    <div class="text-left md:text-center">
+                        <h3 class="font-bold text-indigo-700">Startup Support</h3>
+                        <p class="text-xs text-slate-500 mt-1">창업 지원 및 사후 관리<br>(수료 후)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Detail Box -->
+            <div id="step-detail-box" class="mt-8 bg-slate-50 rounded-xl p-6 border border-slate-200 transition-all duration-300">
+                <div class="flex items-start gap-4">
+                    <div class="text-3xl">🚀</div>
+                    <div>
+                        <h4 id="step-title" class="text-lg font-bold text-slate-800 mb-1">창업 지원 및 사후 관리</h4>
+                        <p id="step-desc" class="text-slate-600 text-sm mb-3">단순 취업 알선을 넘어, 실제 서비스를 런칭하고 사업화할 수 있도록 지원합니다.</p>
+                        <ul id="step-list" class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-slate-500">
+                            <!-- Items populated by JS -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Dashboard Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Left: Detailed Curriculum (Updated with Image Data) -->
+            <section id="curriculum" class="lg:col-span-2 space-y-6">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-xl font-bold text-slate-800">상세 커리큘럼 (Day 1 ~ 118)</h2>
+                    <span class="text-xs font-semibold bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full">NCS + Startup</span>
+                </div>
+
+                <!-- Accordion List -->
+                <div class="space-y-3" id="curriculum-list">
+                    <!-- Javascript will populate this based on the provided image data -->
+                </div>
+            </section>
+
+            <!-- Right: Charts & Startup Support -->
+            <aside class="lg:col-span-1 space-y-6">
+                
+                <!-- Chart 1: Distribution -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="font-bold text-slate-700 mb-4 text-sm">과정 비중 분석</h3>
+                    <div class="chart-container">
+                        <canvas id="distChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-center text-xs text-slate-500">
+                        <span class="font-bold text-indigo-600">프로젝트 & 경험(Experience)</span> 비중 69%
+                    </div>
+                </div>
+
+                <!-- Chart 2: Competency Radar -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="font-bold text-slate-700 mb-4 text-sm">1인 창업자 핵심 역량</h3>
+                    <div class="chart-container">
+                        <canvas id="skillRadarChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Startup Support Card (Changed from Job Support) -->
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 text-white shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl">🦄</div>
+                    <div class="flex items-center gap-3 mb-4 relative z-10">
+                        <span class="text-2xl">💡</span>
+                        <h3 class="font-bold">창업 지원 프로세스</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-300 relative z-10">
+                        <li class="flex gap-2">
+                            <span class="text-indigo-400">✓</span>
+                            <span>정부 지원 사업(예비창업패키지) 멘토링</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-indigo-400">✓</span>
+                            <span>IR 자료 작성 및 피칭 컨설팅</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-indigo-400">✓</span>
+                            <span>MVP 앱 스토어 등록 및 마케팅 가이드</span>
+                        </li>
+                    </ul>
+                    <button class="mt-6 w-full py-2 bg-indigo-600 hover:bg-indigo-500 rounded-lg font-bold text-sm transition-colors relative z-10">
+                        창업 지원 상세 가이드
+                    </button>
+                </div>
+            </aside>
+        </div>
+
+        <!-- 4. Project Outcomes (App Focus) -->
+        <section id="projects" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
+            <h2 class="text-xl font-bold text-slate-800 mb-6">Capstone Project: 나만의 앱 서비스 런칭</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="border border-slate-200 rounded-xl p-5 hover:border-indigo-300 transition-colors">
+                    <div class="text-xs font-bold text-slate-400 mb-2">Capstone 1 (17일)</div>
+                    <h3 class="font-bold text-slate-800 mb-2">통계/분석 솔루션 앱</h3>
+                    <p class="text-sm text-slate-600 mb-4">공공 데이터를 활용한 인사이트 도출 및 대시보드 웹앱</p>
+                    <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">Streamlit / Pandas</span>
+                </div>
+
+                <div class="border border-slate-200 rounded-xl p-5 hover:border-indigo-300 transition-colors">
+                    <div class="text-xs font-bold text-slate-400 mb-2">Capstone 2 (16일)</div>
+                    <h3 class="font-bold text-slate-800 mb-2">AI 비전/분류 서비스</h3>
+                    <p class="text-sm text-slate-600 mb-4">이미지 인식 기술을 활용한 자동 분류 및 모니터링 앱</p>
+                    <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">FastAPI / OpenCV</span>
+                </div>
+
+                <div class="border border-indigo-200 bg-indigo-50 rounded-xl p-5 ring-2 ring-indigo-100">
+                    <div class="text-xs font-bold text-indigo-500 mb-2">Capstone 3 (14일) - Final</div>
+                    <h3 class="font-bold text-slate-800 mb-2">지능형 챗봇/에이전트 서비스</h3>
+                    <p class="text-sm text-slate-600 mb-4">LLM 및 RAG 기반의 사용자 맞춤형 AI 상담원/비서 앱</p>
+                    <span class="text-[10px] bg-white border border-indigo-200 px-2 py-1 rounded text-indigo-600 font-bold">Gen AI / React / LangChain</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 mt-12 py-8 text-center text-slate-500 text-sm">
+        <p class="font-bold text-slate-700 mb-1">AI 앱 개발자 양성 과정 (944시간)</p>
+        <p>Solopreneurship & AI Application Development</p>
+    </footer>
+
+    <script>
+        // --- Data extracted from the User's Image ---
+        const stepDetails = {
+            step1: {
+                title: "AI Foundation (Day 1 - 19)",
+                desc: "AI의 기본 개념부터 Python 프로그래밍, 데이터 분석 기초, 그리고 AI 윤리까지 학습합니다.",
+                items: ["AI 챗봇, 노코드 도구 활용", "Python 기초, Pandas, 시각화", "Industry 4.0 및 AI 프로젝트 윤리"]
+            },
+            step2: {
+                title: "App Development (Day 20 - 37)",
+                desc: "1인 창업을 위한 필수 웹/앱 개발 기술과 배포(Deployment) 프로세스를 익힙니다.",
+                items: ["React, Flask/FastAPI, DB 연동", "Firebase, Docker 활용", "앱 프로젝트 기획 및 UI 구현"]
+            },
+            step3: {
+                title: "AI Experience (Day 38 - 70)",
+                desc: "머신러닝/딥러닝부터 최신 Gen AI(생성형 AI) 및 에이전트 시스템까지 심화 기술을 다룹니다.",
+                items: ["ML/DL 알고리즘, CV/NLP 실습", "LLM Fine-tuning, Prompt Engineering", "RAG, Vector DB, AI Agents"]
+            },
+            step4: {
+                title: "Project Capstone (Day 71 - 118)",
+                desc: "학습한 기술을 총동원하여 실제 시장에 내놓을 수 있는 수준의 AI 앱 서비스를 개발합니다.",
+                items: ["통계/예측 솔루션 개발 (17일)", "객체 탐지/분류 솔루션 (16일)", "지능형 챗봇/서비스 개발 (14일)"]
+            },
+            step5: {
+                title: "창업 지원 및 사후 관리",
+                desc: "개발된 서비스를 기반으로 예비 창업 패키지 도전 및 사업화를 지원합니다.",
+                items: ["사업계획서(PSST) 작성 멘토링", "클라우드 크레딧 및 서버 지원", "창업 경진대회 참가 지원"]
+            }
+        };
+
+        const curriculumList = [
+            {
+                category: "AI Foundation",
+                color: "border-l-4 border-slate-400",
+                items: [
+                    { days: "1~5", title: "기본 이론 & 인식", detail: "AI 챗봇, 노코드 도구, AI 프로젝트 사이클, Gen AI 도구" },
+                    { days: "6~15", title: "프로그래밍 & 분석", detail: "Python 기초, Pandas, 시각화, 응용 AI 코딩, 배포, Soft Skill" },
+                    { days: "16~19", title: "역사 & 사회적 영향", detail: "Industry 4.0, AI 3대 도메인, AI 프로젝트 관리, 윤리" }
+                ]
+            },
+            {
+                category: "App Dev",
+                color: "border-l-4 border-indigo-500",
+                items: [
+                    { days: "20~30", title: "웹/앱 개발 기초", detail: "React, Flask/FastAPI, Gen AI API 연동, DB 연동, Streamlit" },
+                    { days: "31~37", title: "배포 & 기획", detail: "Firebase, Docker, 앱 프로젝트 기획, UI/서버 구현 및 발표" }
+                ]
+            },
+            {
+                category: "Experience",
+                color: "border-l-4 border-violet-500",
+                items: [
+                    { days: "38~40", title: "머신러닝/딥러닝", detail: "지도/비지도/강화학습, ML/DL 알고리즘 개요" },
+                    { days: "41~44", title: "통계 & 데이터 전략", detail: "Data Strategy, Overfitting, Stat Case Study, No-Code Proj" },
+                    { days: "45~50", title: "컴퓨터 비전 (CV)", detail: "OpenCV, Image Classification, Gen AI Vision (OpenVINO 제외)" }, /* Removed OpenVINO */
+                    { days: "51~56", title: "자연어 처리 (NLP)", detail: "AI Team & Roles, NLP Pipeline, Chatbot Dev, NLP Case Study" },
+                    { days: "57~65", title: "생성형 AI (Gen AI)", detail: "Gen AI 역사/기능, Multimodal, Prompt Eng, Fine-Tuning" },
+                    { days: "66~70", title: "심화 Gen AI", detail: "sLM + RAG, Vector DB, AI Agents, Multi-Agent System" }
+                ]
+            },
+            {
+                category: "Project",
+                color: "border-l-4 border-slate-800",
+                items: [
+                    { days: "71~87", title: "통계 기반 예측/분석", detail: "Capstone 1: 예측/분석 솔루션 개발 (17일간)" },
+                    { days: "88~103", title: "컴퓨터 비전", detail: "Capstone 2: 객체 탐지/분류 솔루션 개발 (16일간)" },
+                    { days: "104~117", title: "자연어 처리/Gen AI", detail: "Capstone 3: 지능형 챗봇, 자동 요약 등 서비스 개발 (14일간)" },
+                    { days: "118", title: "최종 발표", detail: "최종 프로젝트 발표회, 포트폴리오 리뷰 및 수료식" }
+                ]
+            }
+        ];
+
+        // --- Functions ---
+        function init() {
+            showStepDetail('step5'); // Fixed: Changed renderStepDetail to showStepDetail
+            renderCurriculumList();
+            renderCharts();
+        }
+
+        function showStepDetail(stepId) {
+            const data = stepDetails[stepId];
+            const box = document.getElementById('step-detail-box');
+            
+            box.style.opacity = '0.5';
+            setTimeout(() => {
+                document.getElementById('step-title').innerText = data.title;
+                document.getElementById('step-desc').innerText = data.desc;
+                document.getElementById('step-list').innerHTML = data.items.map(item => 
+                    `<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>${item}</li>`
+                ).join('');
+                box.style.opacity = '1';
+            }, 150);
+        }
+
+        function renderCurriculumList() {
+            const container = document.getElementById('curriculum-list');
+            container.innerHTML = curriculumList.map(group => `
+                <div class="bg-white border border-slate-200 rounded-lg overflow-hidden ${group.color}">
+                    <div class="bg-slate-50 px-4 py-2 font-bold text-slate-700 border-b border-slate-100 text-sm">
+                        ${group.category}
+                    </div>
+                    <div class="divide-y divide-slate-100">
+                        ${group.items.map(item => `
+                            <div class="p-3 hover:bg-slate-50 transition-colors">
+                                <div class="flex justify-between items-start mb-1">
+                                    <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">일차 ${item.days}</span>
+                                    <span class="text-xs font-bold text-slate-700">${item.title}</span>
+                                </div>
+                                <p class="text-xs text-slate-500">${item.detail}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderCharts() {
+            // Chart 1: Time Distribution (Based on Days)
+            // Foundation: 19 days, AppDev: 18 days, Exp: 33 days, Proj: 48 days
+            new Chart(document.getElementById('distChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Foundation', 'App Dev', 'AI Experience', 'Project'],
+                    datasets: [{
+                        data: [19, 18, 33, 48],
+                        backgroundColor: ['#cbd5e1', '#6366f1', '#8b5cf6', '#1e293b'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'right', labels: { boxWidth: 10, font: { size: 10 } } } },
+                    cutout: '65%'
+                }
+            });
+
+            // Chart 2: Solopreneur Radar
+            new Chart(document.getElementById('skillRadarChart'), {
+                type: 'radar',
+                data: {
+                    labels: ['AI 활용력', '앱 개발', '데이터 기획', '사업화 전략', '디자인/UI'],
+                    datasets: [{
+                        label: '본 과정 목표',
+                        data: [95, 90, 85, 80, 70],
+                        borderColor: '#4f46e5',
+                        backgroundColor: 'rgba(79, 70, 229, 0.2)',
+                        pointBackgroundColor: '#4f46e5',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        r: {
+                            ticks: { display: false },
+                            grid: { color: '#e2e8f0' },
+                            pointLabels: { font: { size: 11, family: 'Noto Sans KR' } }
+                        }
+                    }
+                }
+            });
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
