@@ -15,7 +15,8 @@ describe('HeroSection Component', () => {
 
     it('renders the CTA button', () => {
         render(<HeroSection />)
-        const ctaButton = screen.getByRole('button', { name: /지금 바로 지원하기/i })
+        // ApplyButton renders an anchor tag, so we look for role="link"
+        const ctaButton = screen.getByRole('link', { name: /지금 바로 지원하기/i })
         expect(ctaButton).toBeInTheDocument()
     })
 

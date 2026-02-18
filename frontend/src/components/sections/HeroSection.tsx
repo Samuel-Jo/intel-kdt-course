@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { ApplyButton } from '@/components/features/ApplyButton'
 import { Section } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
 import { ArrowRight } from 'lucide-react'
@@ -30,12 +31,10 @@ export function HeroSection() {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-                    <Button size="lg" className="group text-lg" asChild>
-                        <Link href="https://docs.google.com/forms/..." target="_blank">
-                            지금 바로 지원하기
-                            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                        </Link>
-                    </Button>
+                    <ApplyButton size="lg" className="group text-lg">
+                        지금 바로 지원하기
+                        <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    </ApplyButton>
                     <Button variant="outline" size="lg" className="text-lg">
                         커리큘럼 자세히 보기
                     </Button>
