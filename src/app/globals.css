@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css");
+
+:root {
+  /* Brand Colors */
+  --intel-blue: #0068b5;
+  --deep-navy: #004e87;
+  --neon-cyan: #00c7fd;
+  --electric-indigo: #5a4fcf;
+  --neon-pink: #e63946;
+
+  /* Functional Colors */
+  --clean-white: #ffffff;
+  --light-gray: #f8f9fa;
+  --dark-gray: #111111;
+  --medium-gray: #666666;
+  --alert-red: #e63946;
+  --surface-color: #f0f4f8;
+
+  /* Semantic Mapping */
+  --background: var(--clean-white);
+  --foreground: var(--dark-gray);
+}
+
+@theme {
+  /* Color Palette */
+  --color-primary: var(--intel-blue);
+  --color-primary-foreground: var(--clean-white);
+
+  --color-secondary: var(--deep-navy);
+  --color-secondary-foreground: var(--clean-white);
+
+  --color-accent: var(--neon-cyan);
+  --color-accent-foreground: var(--dark-gray);
+
+  --color-destructive: var(--alert-red);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-surface: var(--light-gray);
+  --color-surface-foreground: var(--dark-gray);
+
+  --color-muted: var(--medium-gray);
+
+  /* Typography */
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+/* Dark Mode (Optional Support) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
