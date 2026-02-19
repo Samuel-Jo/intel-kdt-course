@@ -1,3 +1,4 @@
+// Forced rebuild for sync - v5
 import { HeroSection } from '@/components/sections/HeroSection'
 import { ProblemSection } from '@/components/sections/ProblemSection'
 import { CurriculumSection } from '@/components/sections/CurriculumSection'
